@@ -83,7 +83,7 @@ You can also install [linkding injector](https://github.com/fivefold/linkding-in
 python310 -m pip install linkding-cli ruamel_yaml
 pnpm install ramda-cli
 cargo install xsv
-scoop install jq csview
+scoop install jq
 ```
 
 Get `tidy-viewer.exe` from https://github.com/alexhallam/tv/releases.
