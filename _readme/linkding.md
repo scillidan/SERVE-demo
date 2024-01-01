@@ -104,7 +104,7 @@ List all bookmarks:
 ding .
 ```
 
-![](linkding-cli_01.png)
+![](../_media/linkding-cli_01.png)
 
 Search bookmark:
 
@@ -112,7 +112,7 @@ Search bookmark:
 ding Something
 ```
 
-![](linkding-cli_02.png)
+![](../_media/linkding-cli_02.png)
 
 ## Reference
 
