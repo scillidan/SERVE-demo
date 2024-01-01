@@ -60,7 +60,7 @@ mprocs ^
 	"timeout 5 && ...\miniflux.exe -config-file ...\miniflux.conf"
 ```
 
-## Backup data
+## How to backup data
 
 Create `bk_miniflux.cmd`:
 
@@ -70,7 +70,7 @@ pg_dump -U miniflux_user -h 127.0.0.1 -p 5432 -F t miniflux_db > ...\miniflux.ta
 
 Test it.
 
-## Autorun at startup
+## How autorun at startup
 
 I don't want to use `Windows Task Scheduler`. And I don't try [NSSM](https://nssm.cc/). So I just need that autorun `.cmd` at startup and hide window of the program.
 
@@ -97,9 +97,15 @@ Create shortcut of `.vbs`. Put the `.lnk` into `C:\Users\YourName\AppData\Roamin
 1. `scoop install fluent-reader`
 2. `localhost:8070` → Settings → API Keys → Create a new API key → `fluent-reader` → Copy the Token
 3. Fluent Reader → Setting → Select a service Service → Miniflux :
-  - Endpoint `http://127.0.0.1:8070
-  - Type `API Key`
-  - Password `the Token`
+    - Endpoint `http://127.0.0.1:8070`
+    - Type `API Key`
+    - Password `the Token`
+
+## Some tools or feed
+
+- [github-search-rss](https://github.com/azu/github-search-rss)
+- [RSSHub-Radar](https://github.com/DIYgod/RSSHub-Radar)
+- [F-Droid_Newapps_RSS](https://github.com/yzqzss/f-Droid_Newapps_RSS/)
 
 ## Reference
 
