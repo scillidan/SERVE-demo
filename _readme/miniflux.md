@@ -101,11 +101,13 @@ Create shortcut of `.vbs`. Put the `.lnk` into `C:\Users\YourName\AppData\Roamin
     - Type `API Key`
     - Password `the Token`
 
-## Some tools or feed
+## Some feed tools or feeds
 
+- [hnrss](https://github.com/hnrss/hnrss)
+- [GitHub Trending RSS](https://github.com/mshibanami/GitHubTrendingRSS)
+- [F-Droid_Newapps_RSS](https://github.com/yzqzss/f-Droid_Newapps_RSS/)
 - [github-search-rss](https://github.com/azu/github-search-rss)
 - [RSSHub-Radar](https://github.com/DIYgod/RSSHub-Radar)
-- [F-Droid_Newapps_RSS](https://github.com/yzqzss/f-Droid_Newapps_RSS/)
 
 ## Reference
 

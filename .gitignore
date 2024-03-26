@@ -4,9 +4,13 @@ musical-artifacts-preview/
 # Linux
 ztncui/
 
+# rbenv
+maybe/
+
 # cache
 audiobookshelf/
 deeplx/
 headscale/
 kitsunekko-tools/
 citadel/
+repay
