@@ -1,4 +1,4 @@
-## Host linkding (on Windows10)
+## Host linkding on Windows10
 
 ### Install requirements
 
@@ -121,3 +121,42 @@ ding Something
 ## Troubleshoot
 
 - [ModuleNotFoundError: No module named 'ruamel'](https://github.com/fair-workflows/nanopub/issues/106)
+
+## Host linkding on Ubuntu 22.04.4 ARM
+
+↪ https://github.com/sissbruecker/linkding/blob/master/README.md#setup
+
+```sh
+vim requirements.dev.txt
+```
+
+```
+rcssmin==1.1.1
+```
+
+To:
+
+```
+rcssmin
+```
+
+```sh
+npm install -g concurrently
+```
+
+```sh
+vim package.json
+```
+
+```sh
+{
+	...
+  "scripts": {
+  	"start": "concurrently \"rollup -c -w\" \"python manage.py runserver 0.0.0.0:8060\"",
+  	...
+```
+
+```sh
+pm2 start npm --name "linkding" -- run start
+pm2 save
+```
