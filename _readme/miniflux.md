@@ -1,6 +1,6 @@
-# Host miniflux (on Windows10)
+## Host miniflux on Windows10
 
-## Install requirements
+### Install requirements
 
 Download `miniflux-windows-amd64` from [releases](https://github.com/miniflux/v2/releases), rename it to `miniflux.exe`.
 
@@ -9,7 +9,7 @@ scoop install postgresql14 postgres
 scoop install mprocs gsudo
 ```
 
-## Start
+### Start
 
 ```sh
 initdb --locale=C --username=miniflux_user --pgdata=...\miniflux_db
@@ -60,7 +60,7 @@ mprocs ^
 	"timeout 5 && ...\miniflux.exe -config-file ...\miniflux.conf"
 ```
 
-## How to backup data
+### How to backup data
 
 Create `bk_miniflux.cmd`:
 
@@ -70,7 +70,7 @@ pg_dump -U miniflux_user -h 127.0.0.1 -p 5432 -F t miniflux_db > ...\miniflux.ta
 
 Test it.
 
-## How autorun at startup
+### How autorun at startup
 
 I don't want to use `Windows Task Scheduler`. And I don't try [NSSM](https://nssm.cc/). So I just need that autorun `.cmd` at startup and hide window of the program.
 
@@ -92,7 +92,7 @@ Set WshShell = Nothing
 
 Create shortcut of `.vbs`. Put the `.lnk` into `C:\Users\YourName\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\`.
 
-## Third-party reader
+### Third-party reader
 
 1. `scoop install fluent-reader`
 2. `localhost:8070` → Settings → API Keys → Create a new API key → `fluent-reader` → Copy the Token
@@ -101,7 +101,7 @@ Create shortcut of `.vbs`. Put the `.lnk` into `C:\Users\YourName\AppData\Roamin
     - Type `API Key`
     - Password `the Token`
 
-## Some feed tools or feeds
+### Some feed tools or feeds
 
 - [hnrss](https://github.com/hnrss/hnrss)
 - [GitHub Trending RSS](https://github.com/mshibanami/GitHubTrendingRSS)
@@ -109,8 +109,81 @@ Create shortcut of `.vbs`. Put the `.lnk` into `C:\Users\YourName\AppData\Roamin
 - [github-search-rss](https://github.com/azu/github-search-rss)
 - [RSSHub-Radar](https://github.com/DIYgod/RSSHub-Radar)
 
-## Reference
+### Reference
 
 - [initdb](https://www.postgresql.org/docs/current/app-initdb.html)
 - [Server Dialog](https://www.pgadmin.org/docs/pgadmin4/development/server_dialog.html)
 - [Configuration Parameters](https://miniflux.app/docs/configuration.html)
+
+## Host miniflux on Ubuntu 22.04.4 Arm
+
+↪ https://miniflux.app/docs/debian.html
+
+```sh
+cd /etc/apt/sources.list.d/miniflux.list
+sudo touch miniflux.list
+echo "deb [trusted=yes] https://repo.miniflux.app/apt/ * *" | sudo tee /etc/apt/sources.list.d/miniflux.list > /dev/null
+sudo apt update
+sudo apt install miniflux
+```
+
+↪ https://stackoverflow.com/questions/65222869/how-do-i-solve-this-problem-to-use-psql-psql-error-fatal-role-postgres-d  
+↪ https://kb.objectrocket.com/postgresql/how-to-completely-uninstall-postgresql-757  
+↪ https://www.postgresql.org/download/linux/ubuntu/
+
+```sh
+sudo apt install -y postgresql-common
+sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
+sudo apt install postgresql-16
+```
+
+```sh
+sudo -u postgres psql
+```
+
+↪ https://ntmv.net/posts/proper-way-to-install-miniflux/
+
+```sh
+CREATE ROLE miniflux_user LOGIN PASSWORD 'miniflux_password'
+CREATE USER miniflux_user WITH ENCRYPTED PASSWORD 'miniflux_password'
+CREATE DATABASE miniflux_db
+GRANT ALL PRIVILEGES ON miniflux_db.* TO 'miniflux_user'@'localhost' IDENTIFIED BY 'miniflux_password'
+ALTER USER miniflux_user WITH SUPERUSER
+\q
+```
+
+```sh
+sudo vim /etc/miniflux.conf
+```
+
+```
+RUN_MIGRATIONS=1
+DATABASE_URL=user=miniflux_user password=miniflux_password dbname=miniflux_db sslmode=disable
+LISTEN_ADDR=/run/miniflux/miniflux.sock
+PORT=8070
+```
+
+```sh
+miniflux -c /etc/miniflux.conf -migrate
+miniflux -c /etc/miniflux.conf -create-admin
+```
+
+```sh
+miniflux -c /etc/miniflux.conf
+```
+
+If `postgresql` not run:
+
+```sh
+sudo systemctl start postgresql
+```
+
+```sh
+sudo systemctl enable --now miniflux
+sudo systemctl enable --now postgresql
+```
+
+### Reader Themes
+
+↪ https://immmmm.com/hi-miniflux/  
+↪ https://github.com/rootknight/Miniflux-Theme-Reeder

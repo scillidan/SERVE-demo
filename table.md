@@ -1,4 +1,7 @@
 group | source | license | readme | preview
 :- | :- | :- | :- | :-:
+watch | [CHANGE DETECTION](//github.com/dgtlmoon/changedetection.io) | ![](https://img.shields.io/github/license/dgtlmoon/changedetection.io?label=&style=flat-square) | [![](https://img.shields.io/github/last-commit/scillidan/changedetection.io/main?label=&style=flat-square)](//github.com/scillidan/changedetection.io) | [.md](_readme/changedetection.md) | ![](_media/changedetection.png)
 rss | [miniflux](//github.com/miniflux/v2) | ![](https://img.shields.io/github/license/miniflux/v2?label=&style=flat-square) | [.md](_readme/miniflux.md) | ![](_media/miniflux.png)
 bookmark | [linkding](//github.com/sissbruecker/linkding) | ![](https://img.shields.io/github/license/sissbruecker/linkding?label=&style=flat-square) | [.md](_readme/linkding.md) | ![](_media/linkding.png)
+dict | [SilverDict](//github.com/Crissium/SilverDict) | ![](https://img.shields.io/github/license/Crissium/SilverDict?label=&style=flat-square) | [![](https://img.shields.io/github/last-commit/scillidan/SilverDict/main?label=&style=flat-square)](//github.com/scillidan/SilverDict) | [.md](_readme/SilverDict.md) | ![](_media/silverdict.png)
+tool | [MyIP](//github.com/jason5ng32/MyIP) | ![](https://img.shields.io/github/license/jason5ng32/MyIP?label=&style=flat-square) | [![](https://img.shields.io/github/last-commit/scillidan/MyIP/main?label=&style=flat-square)](//github.com/scillidan/MyIP) | [.md](_readme/myip.md) | ![](_media/myip.png)

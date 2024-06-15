@@ -6,6 +6,16 @@ kitsunekko-tools/
 webtag/
 
 # cache
+changedetection.io/
 audiobookshelf/
 headscale/
 citadel/
+
+# api
+web-check/
+
+# tbd
+SilverDict/
+pic-smaller/
+MyIP/
+it-tools/
