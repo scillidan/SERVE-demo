@@ -2,6 +2,7 @@ it-tools/
 
 # Cache
 
+opencti/
 SilverDict/
 pic-smaller/
 kitsunekko-tools/
@@ -10,6 +11,7 @@ zealusercontributions/
 changedetection.io/
 audiobookshelf/
 headscale/
+
 # ruby
 showcase-recipe-search/
 # api
